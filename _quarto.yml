@@ -1,0 +1,68 @@
+project:
+  type: book
+
+book:
+  title: "Thesis title"
+  subtitle: "Thesis subtitle"
+  author:
+    - name: "Name Surname"
+      id: "010101"
+      affiliations:
+        - name: "University of ..."
+          department: "Department of ..."
+  date: "2024-01-01"
+  output-file: "output_thesis"
+  chapters:
+    - index.qmd
+    - chapter_1.qmd
+    - chapter_2.qmd
+    - chapter_3.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  pdf:
+    papersize: a4
+    documentclass: scrreprt
+    include-in-header:
+      text: |
+        \usepackage{makeidx}
+        \makeindex
+        \usepackage[utf8]{inputenc}
+        \usepackage{tikz}
+        \usepackage{geometry}
+        \usepackage{changepage}
+        \setkomafont{disposition}{\normalfont}
+        \setkomafont{pageheadfoot}{\normalfont\normalcolor\footnotesize}
+        \setcounter{section}{-1}
+    include-after-body: 
+      text: |
+        \printindex
+    toc: true
+    lof: true
+    lot: true
+    geometry:
+      - inner=3cm
+      - outer=3cm
+      - top=2.5cm
+      - bottom=2.5cm
+      - headsep=22pt
+      - headheight=11pt
+      - footskip=33pt
+      - ignorehead
+      - ignorefoot
+      - heightrounded
+    linestretch: 1.5
+    fontsize: 12pt
+    mainfont: "Times New Roman"
+    monofont: "Courier New"
+    template-partials:
+      - _cover/before-body.tex
+      - _cover/toc.tex
+    number-sections: true
+
+
+classoption: abstract
+abstract: |
+  Abstract here.

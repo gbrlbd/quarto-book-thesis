@@ -1,0 +1,54 @@
+$if(has-frontmatter)$
+\frontmatter
+$endif$
+$if(title)$
+\cleardoublepage
+\thispagestyle{empty}
+{\centering
+\begin{titlepage}
+    \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north west,yshift=-2cm,xshift=2cm]
+        at (current page.north west)
+        {\includegraphics[height=40mm]{_cover/logo.jpg}};
+    \end{tikzpicture}
+    \vspace{5cm}
+    \begin{center}
+    
+    \Large{MSc/BSc program\\
+    in\\
+    Economics\\}
+    
+    \vspace{2cm}
+    \Large{Final Thesis}
+    \vspace{2cm}
+    
+    \huge{\textbf{$title$}}\\
+    \vspace{0.5cm}
+    \LARGE{$subtitle$}
+    
+    \end{center}
+    \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=south west, yshift=1.5cm,xshift=2cm]
+        at (current page.south west) {
+        \begin{tabular}{l}
+            \textbf{Supervisor} \\
+            Ch. Prof. ...\\[.3cm]
+            \textbf{Graduand} \\
+            $for(by-author)$
+            $by-author.name.literal$\\
+            Matriculation number $by-author.id$\\[.5cm]
+            $endfor$
+            \textbf{Academic Year}\\
+            2023-2024
+        \end{tabular}
+        };
+    \end{tikzpicture}
+    \end{titlepage}
+    \stepcounter{page}
+}
+$if(abstract)$
+\begin{abstract}
+    $abstract$
+\end{abstract}
+$endif$
+$endif$
